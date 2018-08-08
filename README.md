@@ -5,5 +5,5 @@
 ### [1. mail](https://github.com/PursuePD/JavaDemo/tree/master/mail)
 > * 邮件的发送,附带文件的邮件发送
 > * Zip文件压缩并加密
-### [1. mongodb](https://github.com/PursuePD/JavaDemo/tree/master/mongodb)
+### [2. mongodb](https://github.com/PursuePD/JavaDemo/tree/master/mongodb)
 > * mongodb的试用示例
