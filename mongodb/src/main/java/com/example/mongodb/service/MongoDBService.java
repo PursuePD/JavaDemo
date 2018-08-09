@@ -45,4 +45,12 @@ public interface MongoDBService {
      * @return
      */
     List<People> findByNameAndAge(String name,int age);
+
+    /**
+     * 通过name 和age  修改第一个的address
+     * @param name
+     * @param age
+     * @param updateAddress
+     */
+    void updateAddress(String name,int age,String updateAddress);
 }

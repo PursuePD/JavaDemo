@@ -49,14 +49,15 @@ public class MongoDBController {
         return mongoDBService.findListByAge(age);
     }
 
-    @GetMapping("/users/nameage")
-    @ApiOperation(value = "users",notes = "无")
+    @PutMapping("/users/update/address")
+    @ApiOperation(value = "修改地址",notes = "无")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",dataType = "String",name = "name",value = "姓名",required = true ),
-            @ApiImplicitParam(paramType = "query",dataType = "int",name = "age",value = "年龄",required = true )
+            @ApiImplicitParam(paramType = "query",dataType = "int",name = "age",value = "年龄",required = true ),
+            @ApiImplicitParam(paramType = "query",dataType = "String",name = "address",value = "地址",required = true )
     })
-    public List<People> findByNameAndAge(@RequestParam("name") String name,@RequestParam("age") int age){
-        return mongoDBService.findByNameAndAge(name,age);
+    public void findByNameAndAge(@RequestParam("name") String name,@RequestParam("age") int age,@RequestParam("address") String address){
+        mongoDBService.updateAddress(name,age,address);
     }
 
 }
