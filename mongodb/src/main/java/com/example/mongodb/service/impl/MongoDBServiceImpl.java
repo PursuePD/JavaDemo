@@ -40,4 +40,9 @@ public class MongoDBServiceImpl implements MongoDBService {
         return true;
     }
 
+    public List<People> findListByAge(int age){
+        Query query = new Query(Criteria.where("age").is(age));
+        return mongoTemplate.find(query,People.class);
+    }
+
 }

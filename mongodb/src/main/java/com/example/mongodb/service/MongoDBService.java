@@ -16,4 +16,6 @@ public interface MongoDBService {
     boolean addPeople(People people);
 
     boolean addPeoples(List<People> peoples);
+
+    List<People> findListByAge(int age);
 }
