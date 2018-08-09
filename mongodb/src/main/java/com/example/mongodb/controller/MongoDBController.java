@@ -4,6 +4,7 @@ import com.example.mongodb.entity.People;
 import com.example.mongodb.entity.PeopleListModel;
 import com.example.mongodb.service.MongoDBService;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +47,16 @@ public class MongoDBController {
     @ApiImplicitParam(paramType = "query",dataType = "int",name = "age",value = "年龄",required = true )
     public List<People> findByAge(@RequestParam("age") int age){
         return mongoDBService.findListByAge(age);
+    }
+
+    @GetMapping("/users/nameage")
+    @ApiOperation(value = "users",notes = "无")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",dataType = "String",name = "name",value = "姓名",required = true ),
+            @ApiImplicitParam(paramType = "query",dataType = "int",name = "age",value = "年龄",required = true )
+    })
+    public List<People> findByNameAndAge(@RequestParam("name") String name,@RequestParam("age") int age){
+        return mongoDBService.findByNameAndAge(name,age);
     }
 
 }
