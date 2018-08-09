@@ -36,7 +36,7 @@ public class MongoDBServiceImpl implements MongoDBService {
     }
 
     public boolean addPeoples(List<People> peoples){
-        mongoTemplate.insert(peoples);
+        mongoTemplate.insert(peoples,"people");
         return true;
     }
 
