@@ -1,6 +1,7 @@
 package com.example.mail.service;
 
 import javafx.util.Pair;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.List;
@@ -29,6 +30,15 @@ public interface EmailService {
      * @param content 邮件内容
      */
     public void sendAttachmentsMail(String sendTo, String titel, String content);
+
+    /**
+     * 发送带附件的文件
+     * @param sendTo
+     * @param titel
+     * @param content
+     * @param file
+     */
+    public void sendFile( String sendTo, String titel, String content,MultipartFile file);
 
     /**
      * 发送模板邮件
