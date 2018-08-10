@@ -74,6 +74,7 @@ public class EmailServiceImpl implements EmailService {
             helper.addAttachment("aa.zip", zip);
             helper.addAttachment("weixin.jpg", image);
 
+
 //            FileSystemResource file = new FileSystemResource(new File("aa.zip"));
 //            helper.addAttachment("aa.zip",file);
 
@@ -99,7 +100,7 @@ public class EmailServiceImpl implements EmailService {
             helper.setFrom(emailConfig.getEmailFrom());
             helper.setTo(sendTo);
             helper.setSubject(titel);
-            helper.setText("这里是内容(带附件）"+content);
+            helper.setText("<html><body><h1>这里是内容(带附件）"+content+"</h1></body></html>",true);
 
             File dir = new File("D:/Test");
             if (!dir.exists()) {
