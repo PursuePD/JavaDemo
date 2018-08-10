@@ -49,5 +49,12 @@ public interface EmailService {
      */
     public void sendTemplateMail(String sendTo, String titel, Map<String, Object> content, List<Pair<String, File>> attachments);
 
+    /**
+     * 发送steam验证码
+     * @param sendTo
+     * @param titel
+     * @param code
+     */
+    public void sendSteamCode(String sendTo,String username,String code);
 
 }
