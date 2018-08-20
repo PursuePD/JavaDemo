@@ -7,3 +7,6 @@
 > * Zip文件压缩并加密
 ### [2. mongodb](https://github.com/PursuePD/JavaDemo/tree/master/mongodb)
 > * mongodb的使用示例
+### [3. smalldemo](https://github.com/PursuePD/JavaDemo/tree/master/smalldemo)
+> * 很多小的用例目前包括：
+>     * 另起线程实现异步操作 Thread\AsynchronizationThread.java
