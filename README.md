@@ -13,3 +13,5 @@
 > * 很多小的用例目前包括：
 >     * 线程
 >       * 另起线程实现异步操作 Thread\AsynchronizationThread.java
+>      * 压缩文件，加密压缩文件 ZipFile\ZipUtil.java
+
