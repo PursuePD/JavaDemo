@@ -7,6 +7,8 @@
 ### [1. mail](https://github.com/PursuePD/JavaDemo/tree/master/mail)
 > * 邮件的发送,附带文件的邮件发送
 > * Zip文件压缩并加密
+> * 定时任务
+> * 事件监听
 ### [2. mongodb](https://github.com/PursuePD/JavaDemo/tree/master/mongodb)
 > * mongodb的使用示例
 ### [3. smalldemo](https://github.com/PursuePD/JavaDemo/tree/master/smalldemo)
