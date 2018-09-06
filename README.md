@@ -7,8 +7,15 @@
 ### [1. mail](https://github.com/PursuePD/JavaDemo/tree/master/mail)
 > * 邮件的发送,附带文件的邮件发送
 > * Zip文件压缩并加密
-> * 定时任务  ipml/ScheduledService
-> * 事件监听 Event
+> * 定时任务  Scheduled
+>  * 定时任务  Scheduled
+> * 事件监听  
+>  * 事件监听需要  `触发器`->`事件源`->`监听器`  
+>    * 触发器【触发消息】EventServiceImpl 需要实现ApplicationContextAware 
+>    * 事件源【传递消息】MessageEvent 需要继承ApplicationEvent 
+>    * 监听器【处理事件】MessageEventListener 需要实现ApplicationListener<`事件源`> 
+>    * 异步 需要监听器方法加@Async 主类@EnableAsync
+
 ### [2. mongodb](https://github.com/PursuePD/JavaDemo/tree/master/mongodb)
 > * mongodb的使用示例
 ### [3. smalldemo](https://github.com/PursuePD/JavaDemo/tree/master/smalldemo)
