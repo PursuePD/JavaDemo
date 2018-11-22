@@ -1,4 +1,4 @@
-package com.example.mongodb.config;
+package com.example.springtest.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.mongodb.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.example.springtest.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

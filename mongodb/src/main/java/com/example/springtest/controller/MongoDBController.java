@@ -1,8 +1,8 @@
-package com.example.mongodb.controller;
+package com.example.springtest.controller;
 
-import com.example.mongodb.entity.People;
-import com.example.mongodb.entity.PeopleListModel;
-import com.example.mongodb.service.MongoDBService;
+import com.example.springtest.entity.People;
+import com.example.springtest.entity.PeopleListModel;
+import com.example.springtest.service.MongoDBService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;

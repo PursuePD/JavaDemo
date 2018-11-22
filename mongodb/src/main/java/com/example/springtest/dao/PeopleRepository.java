@@ -1,6 +1,6 @@
-package com.example.mongodb.dao;
+package com.example.springtest.dao;
 
-import com.example.mongodb.entity.People;
+import com.example.springtest.entity.People;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

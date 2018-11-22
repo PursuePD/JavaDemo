@@ -1,4 +1,4 @@
-package com.example.mongodb.entity;
+package com.example.springtest.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 

@@ -1,6 +1,6 @@
-package com.example.mongodb.service;
+package com.example.springtest.service;
 
-import com.example.mongodb.entity.People;
+import com.example.springtest.entity.People;
 
 import java.util.List;
 
@@ -53,4 +53,6 @@ public interface MongoDBService {
      * @param updateAddress
      */
     void updateAddress(String name,int age,String updateAddress);
+
+    String test();
 }
