@@ -1,6 +1,10 @@
 
+server:
+  port: 8081
 
 spring:
+  application:
+    name: redisTest
   profiles:
     active: dev
   datasource:
@@ -15,6 +19,14 @@ spring:
   data:
     mongodb:
       database: User
+
+
+singleServerConfig:
+  address: redis://127.0.0.1:6379
+  password:
+  database: 0
+
+
 
 
 

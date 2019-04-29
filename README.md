@@ -28,7 +28,8 @@
 >     * 时间轮
 >     * Java特性 Stream
 ### [4. delayedTask](https://github.com/PursuePD/JavaDemo/tree/master/delayedTask)
-> * 妙级定时任务讨论分析
+> * 秒级定时任务讨论分析
 >     * 时间轮
+>     * Redis方案1：有序集合
 
 

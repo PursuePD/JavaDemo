@@ -316,6 +316,12 @@ public class DateUtils {
         return simpleDateFormat.format(time);
     }
 
+    public static long getLongTime(long time) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        String timeStr = simpleDateFormat.format(time);
+        return Long.parseLong(timeStr);
+    }
+
     public static Timestamp getTimeStampTime(long time) throws ParseException {
         return new Timestamp(time);
     }
