@@ -23,7 +23,7 @@ public class DoTaskSchedule implements SchedulingConfigurer {
 
     @Scheduled(cron="0/1 * * * * ?")
     public void executeFileDownLoadTask() {
-        delayTaskService.doDelayTask();
+        delayTaskService.doDelayTaskCollection();
     }
 
     @Override

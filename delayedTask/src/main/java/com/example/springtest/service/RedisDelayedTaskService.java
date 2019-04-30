@@ -28,4 +28,6 @@ public interface RedisDelayedTaskService {
      */
     Collection<String> getToDoRangeTask(long endTime);
 
+    boolean remove(String json);
+
 }

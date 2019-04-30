@@ -11,4 +11,10 @@ public interface DelayTaskService {
      * 执行任务
      */
     void doDelayTask();
+
+
+    /**
+     * 批量执行任务
+     */
+    void doDelayTaskCollection();
 }

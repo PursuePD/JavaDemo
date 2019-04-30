@@ -57,7 +57,16 @@ public class RedisDelayedTaskServiceImpl implements RedisDelayedTaskService {
     public Collection<String> getToDoRangeTask(long endTime) {
         RScoredSortedSet<String> rScoredSortedSet = redissonClient.getScoredSortedSet("DelayedTask");
         Collection<String> collection = rScoredSortedSet.valueRange( 0 ,true,endTime,true);
-        LOGGER.info(collection.toString());
         return collection;
+    }
+
+    @Override
+    public boolean remove(String json) {
+        RScoredSortedSet<String> rScoredSortedSet = redissonClient.getScoredSortedSet("DelayedTask");
+        if(rScoredSortedSet.remove(json)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
