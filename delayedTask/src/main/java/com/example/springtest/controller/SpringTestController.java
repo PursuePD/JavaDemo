@@ -1,5 +1,6 @@
 package com.example.springtest.controller;
 
+import com.example.springtest.service.RedisDelayedTaskService;
 import com.example.springtest.service.TimeWheelService;
 import com.example.springtest.util.DateUtils;
 import io.swagger.annotations.ApiImplicitParam;
@@ -24,6 +25,9 @@ public class SpringTestController {
     @Autowired
     private TimeWheelService timeWheelService;
 
+    @Autowired
+    private RedisDelayedTaskService redisDelayedTaskService;
+
     @GetMapping("/timeWheelTest/{seconds}")
     @ApiImplicitParam(paramType = "path",dataType = "int",name = "seconds",value = "延时的时间",required = true )
     public String timeWheelTest(@PathVariable int seconds){
@@ -31,5 +35,6 @@ public class SpringTestController {
         timeWheelService.addTimeTaskNewOrder(seconds,TimeUnit.MINUTES,"");
         return "";
     }
+
 
 }

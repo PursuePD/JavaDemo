@@ -2,15 +2,22 @@ package com.example.springtest.service.impl;
 
 import com.example.springtest.service.RedisDelayedTaskService;
 import com.example.springtest.util.DateUtils;
-import org.redisson.api.RScoredSortedSet;
-import org.redisson.api.RedissonClient;
+
+import org.redisson.api.*;
+import org.redisson.api.map.event.EntryEvent;
+import org.redisson.api.map.event.EntryExpiredListener;
+import org.redisson.api.map.event.EntryRemovedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.core.RedisTemplate;
+
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.Collection;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author:cuijialei
@@ -27,7 +34,7 @@ public class RedisDelayedTaskServiceImpl implements RedisDelayedTaskService {
 
     @Override
     public void addTask(long overTime, String json) {
-        RScoredSortedSet<String> rScoredSortedSet = redissonClient.getScoredSortedSet("DelayedTask");
+       RScoredSortedSet<String> rScoredSortedSet = redissonClient.getScoredSortedSet("DelayedTask");
         rScoredSortedSet.add(overTime,json);
     }
 
@@ -69,4 +76,13 @@ public class RedisDelayedTaskServiceImpl implements RedisDelayedTaskService {
             return false;
         }
     }
+
+    @Override
+    public void addOverdueTask(long overdueTime,String key,String json) {
+        long seconds = (overdueTime - System.currentTimeMillis())/1000;
+        RBucket rBucket = redissonClient.getBucket(key);
+        rBucket.set(json,seconds,TimeUnit.SECONDS);
+
+    }
+
 }

@@ -28,6 +28,20 @@ public interface RedisDelayedTaskService {
      */
     Collection<String> getToDoRangeTask(long endTime);
 
+    /**
+     * 删除数据
+     * @param json
+     * @return 成功则返回T
+     */
     boolean remove(String json);
+
+
+    /**
+     * 添加过期事件
+     * @param overdueTime 到期时间
+     * @param key key
+     * @param json value
+     */
+    void addOverdueTask(long overdueTime,String key,String json);
 
 }

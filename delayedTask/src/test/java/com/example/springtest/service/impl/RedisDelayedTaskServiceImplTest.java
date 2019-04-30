@@ -40,11 +40,20 @@ public class RedisDelayedTaskServiceImplTest {
 
     @Test
     public void addTask1() {
-        for(int i= 10 ; i<= 15 ; i=i+1){
+        for(int i= 10 ; i<= 11 ; i=i+1){
             long time = System.currentTimeMillis() + i*1000;
-            for(int j = 0;j<5;j++){
+            for(int j = 0;j<20;j++){
                 redisDelayedTaskService.addTask(DateUtils.getLongTime(time),"订单号:"+i+j+",应该执行任务时间:"+DateUtils.getStringTime(time));
             }
+        }
+
+    }
+
+    @Test
+    public void addTask2() {
+        for(int i= 5 ; i<= 10 ; i=i+1){
+            long time = System.currentTimeMillis() + i*1000;
+            redisDelayedTaskService.addOverdueTask(time,"overdueTask"+time,"订单号:"+i+"应该执行任务时间:"+DateUtils.getStringTime(time));
         }
 
     }
