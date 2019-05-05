@@ -30,6 +30,8 @@
 ### [4. delayedTask](https://github.com/PursuePD/JavaDemo/tree/master/delayedTask)
 > * 秒级定时任务讨论分析
 >     * 时间轮
->     * Redis方案1：有序集合
+>     * Redis方案1：有序集合实现
+>     * Redis方案2：键空间通知
+>     * RabbitMQ
 
 
