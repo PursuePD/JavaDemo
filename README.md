@@ -34,4 +34,9 @@
 >     * Redis方案2：键空间通知
 >     * RabbitMQ
 
+### [4. SpringStatemachineDemo](https://github.com/PursuePD/JavaDemo/tree/master/SpringStatemachineDemo)
+> * SpringStateMachine Demo
+>     * 状态机demo
+>     * [参考文档](https://my.oschina.net/u/173343/blog/3049036)
+
 
