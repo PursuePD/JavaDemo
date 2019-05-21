@@ -53,7 +53,7 @@ public class RabbitMqConfig {
     @Bean
     public CustomExchange delayExchange(){
         Map<String, Object> args = new HashMap<>(16);
-        args.put("x-dead-letter-exchange", "*");
+        args.put("x-dead-letter-exchange", "delay_exchange");
         return new CustomExchange(DELAY_EXCHANGE, "x-delayed-message", true, false, args);
     }
 
