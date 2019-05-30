@@ -7,29 +7,28 @@ package com.example.statemachine.CaTest3;
  * @Date: 2019/5/20
  * @Describe
  */
-public enum ExtraState {
-    //待付款	支付中	已完成	已关闭	支付异常
+public enum ContractState {
+    //等待确认	已生效	未生效	已失效
     NullState("无",0),
-    WaitPay("待付款",3001),
-    Paying("支付中",3002),
-    OrderSuccess("已完成",3003),
-    OrderClose("已关闭",3004),
-    OrderError("支付异常",3005),
+    ContractWaitConfirm("等待确认合同",2001),
+    ContractExecuted("已生效合同",2002),
+    ContractUnenforced("未生效合同",2003),
+    ContractExpired("已失效合同",2004),
 
     ;
 
     private String StateDesc;
     private int StateNo;
 
-    ExtraState(String stateDesc, int stateNo) {
+    ContractState(String stateDesc, int stateNo) {
         StateDesc = stateDesc;
         StateNo = stateNo;
     }
 
-    public static ExtraState getExtraStateByNo(int StateNo){
-        ExtraState.values();
+    public static ContractState getExtraStateByNo(int StateNo){
+        ContractState.values();
         //return (ExtraState)(Arrays.stream(ExtraState.values()).filter(e -> StateNo == e.getStateNo()).toArray())[0];
-        for (ExtraState extraState : ExtraState.values()) {
+        for (ContractState extraState : ContractState.values()) {
             if(extraState.StateNo == StateNo){
                 return extraState;
             }

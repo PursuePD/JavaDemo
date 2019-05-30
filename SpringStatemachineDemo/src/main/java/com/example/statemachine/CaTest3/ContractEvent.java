@@ -1,5 +1,6 @@
 package com.example.statemachine.CaTest3;
 
+
 import java.util.Arrays;
 
 /**
@@ -7,25 +8,19 @@ import java.util.Arrays;
  * @Date: 2019/5/20
  * @Describe
  */
-public enum ExtraEvent {
-    //下单
-    Order("下单",3001),
-    //支付
-    Pay("支付",3002),
-    //支付成功
-    PaySuccessNotice("支付成功通知",3003),
-    //支付失败
-    PayFailedNotice("支付失败通知",3004),
-    //订单超时
-    OrderTimeOut("订单超时",3005),
+public enum ContractEvent {
+    //合同
+    UploadContract("上传合同",2001),
+    ConfirmContract("确认合同",2002),
+    RejectContract("拒绝合同",2003),
+    InvalidateContract("修改订单使合同失效",2004),
 
-    CloseOrder("用户关闭订单",3006),
     ;
 
     private String EventDesc;
     private int EventNo;
 
-    ExtraEvent(String eventDesc, int eventNo) {
+    ContractEvent(String eventDesc, int eventNo) {
         EventDesc = eventDesc;
         EventNo = eventNo;
     }
@@ -49,4 +44,5 @@ public enum ExtraEvent {
     public void setEventNo(int eventNo) {
         EventNo = eventNo;
     }
+
 }

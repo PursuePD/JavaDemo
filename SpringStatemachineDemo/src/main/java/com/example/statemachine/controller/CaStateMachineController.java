@@ -46,6 +46,10 @@ public class CaStateMachineController {
         StateMachine<ExtraState, ExtraEvent>  stateMachine = StateMachineBulider.bulider(1);
 
         Order order = orderMap.get(orderNo);
+        if(order == null){
+            order = new Order();
+            order.setOrderNO(orderNo);
+        }
 
         stateMachine.start();
         List<StateMachineAccess<ExtraState, ExtraEvent>> withAllRegions = stateMachine.getStateMachineAccessor().withAllRegions();
@@ -63,5 +67,22 @@ public class CaStateMachineController {
     @ApiOperation(value = "user",notes = "无")
     public void orderInfo(@PathVariable("orderNo") String orderNo)throws Exception {
         logger.info("订单：{}",orderMap.get(orderNo) );
+    }
+
+
+
+    @GetMapping("/Test")
+    public void orderInfo1()throws Exception {
+        StateMachine<ExtraState, ExtraEvent>  stateMachine = StateMachineBulider.bulider(1);
+        // 创建流程
+        stateMachine.start();
+
+        // 触发PAY事件
+        stateMachine.sendEvent(ExtraEvent.Order);
+
+        System.out.println("id：" + stateMachine.getId());
+
+        // 获取最终状态
+        System.out.println("最终状态：" + stateMachine.getState().getId());
     }
 }

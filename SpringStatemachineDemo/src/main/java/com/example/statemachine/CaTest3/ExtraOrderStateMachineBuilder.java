@@ -30,7 +30,7 @@ public class ExtraOrderStateMachineBuilder extends EnumStateMachineConfigurerAda
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    private final static String EXTRA_ORDER = "ExtraOrderMachine";
+    public final static String EXTRA_ORDER = "ExtraOrderMachine";
 
 
     /**
@@ -52,10 +52,20 @@ public class ExtraOrderStateMachineBuilder extends EnumStateMachineConfigurerAda
 
         builder.configureStates()
                 .withStates()
-                .initial(ExtraState.WaitPay)
+                .initial(ExtraState.NullState)
                 .states(EnumSet.allOf(ExtraState.class));
 
         builder.configureTransitions()
+                .withExternal()
+                .source(ExtraState.NullState).target(ExtraState.WaitPay)
+                .event(ExtraEvent.Order)
+                .action(stateContext -> {
+                    logger.info("创建订单");
+                    Order msgOrder = stateContext.getMessage().getHeaders().get("order", Order.class);
+                    Order newOrder = new Order(msgOrder.getOrderNO(), ExtraState.WaitPay.getStateNo());
+                    CaStateMachineController.orderMap.put(msgOrder.getOrderNO(), newOrder);
+                })
+                .and()
                 .withExternal()
                 .source(ExtraState.WaitPay).target(ExtraState.Paying)
                 .event(ExtraEvent.Pay)

@@ -1,5 +1,6 @@
 package com.example.statemachine.CaTest3;
 
+
 import java.util.Arrays;
 
 /**
@@ -7,25 +8,23 @@ import java.util.Arrays;
  * @Date: 2019/5/20
  * @Describe
  */
-public enum ExtraEvent {
-    //下单
-    Order("下单",3001),
-    //支付
-    Pay("支付",3002),
-    //支付成功
-    PaySuccessNotice("支付成功通知",3003),
-    //支付失败
-    PayFailedNotice("支付失败通知",3004),
-    //订单超时
-    OrderTimeOut("订单超时",3005),
+public enum OfflineTradeEvent {
+    //主流程
+    StartOrder("确认订单",1101),
+    ConfirmOrder("确认订单",1102),
+    UploadPayInvoice("上传支付凭证",1103),
+    ConfirmPayInvoice("确认支付凭证",1104),
+    DeliverGoods("发货（上传三单）",1105),
+    ConfirmDeliver("确认收货",1106),
+    ConfirmDraftOrder("确认草拟订单",1107),
+    CloseOrder("关闭订单",1108),
 
-    CloseOrder("用户关闭订单",3006),
     ;
 
     private String EventDesc;
     private int EventNo;
 
-    ExtraEvent(String eventDesc, int eventNo) {
+    OfflineTradeEvent(String eventDesc, int eventNo) {
         EventDesc = eventDesc;
         EventNo = eventNo;
     }
@@ -49,4 +48,5 @@ public enum ExtraEvent {
     public void setEventNo(int eventNo) {
         EventNo = eventNo;
     }
+
 }
