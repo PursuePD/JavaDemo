@@ -14,6 +14,12 @@ import java.util.concurrent.*;
 public class ExecutorTest {
 
     public static void main(String[] args) throws  Exception{
+        ExecutorServiceTest();
+
+    }
+
+
+    private static void ExecutorServiceTest() throws Exception{
         //创建一个线程池
 //        ExecutorService pool = Executors.newFixedThreadPool(10);
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().build();
@@ -23,7 +29,7 @@ public class ExecutorTest {
         List<Future<String>> list = new ArrayList<>();
 
         for(int i = 0; i <10;i++){
-            Callable c = () -> Math.random()*10000+"";
+            Callable c = () -> (int)(Math.random()*10000)+"time"+System.currentTimeMillis();
             // 执行任务并获取 Future 对象
             Future f = pool.submit(c);
             list.add(f);
@@ -33,10 +39,9 @@ public class ExecutorTest {
         pool.shutdown();
         // 获取所有并发任务的运行结果
         for (Future<String> f : list) {
-        // 从 Future 对象上获取任务的返回值，并输出到控制台
+            // 从 Future 对象上获取任务的返回值，并输出到控制台
             System.out.println("res：" + f.get());
         }
-
     }
 
 }
