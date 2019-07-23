@@ -57,6 +57,9 @@ public class UseThreadPool {
                 new ArrayBlockingQueue<Runnable>(10)
                 ,new ThreadPoolExecutor.DiscardOldestPolicy());
 
+//        ExecutorService pool = Executors.newCachedThreadPool();
+//        ExecutorService pool = Executors.newSingleThreadExecutor();
+
         for (int i = 0 ; i <6 ; i++){
             Worker worker = new Worker("worker_"+i);
             pool.execute(worker);
