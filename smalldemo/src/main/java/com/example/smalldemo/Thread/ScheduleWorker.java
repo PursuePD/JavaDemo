@@ -14,6 +14,7 @@ public class ScheduleWorker implements  Runnable {
     public final static int HasException = -1 ;  //触发异常的任务
     public final static int processException = 1 ; //触发异常但是会被捕捉的任务
 
+    //线程不安全
     public static SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
     private int taskType;
 
