@@ -44,9 +44,25 @@ public class Test20190709 {
          * 输出: 0
          * 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
          */
-        int[] i = new int[]{7,6,4,3,1};
-        System.out.println(maxProfit(i));
+//        int[] i = new int[]{7,6,4,3,1};
+//        System.out.println(maxProfit(i));
 
+
+        /**
+         * 99乘法表
+         */
+        ninenine();
+    }
+
+    public static void ninenine(){
+        for (int i = 1 ,j = 1; j <= 9 ; i++){
+            System.out.print(i+"*"+j+"="+i*j +"   ");
+            if(i == j){
+                System.out.print("\n");
+                j++;
+                i = 0;
+            }
+        }
     }
 
     /**
