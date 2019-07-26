@@ -20,6 +20,7 @@
 > * mongodb的使用示例
 ### [3. smalldemo](https://github.com/PursuePD/JavaDemo/tree/master/smalldemo)
 > * 很多小的用例目前包括：
+>     * 设计模式
 >     * 线程
 >       * 另起线程实现异步操作 Thread\AsynchronizationThread.java
 >     * 压缩文件，加密压缩文件 ZipFile\ZipUtil.java
