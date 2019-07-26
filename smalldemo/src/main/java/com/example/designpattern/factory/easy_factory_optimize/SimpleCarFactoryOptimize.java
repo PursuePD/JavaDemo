@@ -5,9 +5,9 @@ import com.example.designpattern.factory.Car;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author:cuijialei
@@ -15,8 +15,10 @@ import java.util.Properties;
  * @Describe
  */
 public class SimpleCarFactoryOptimize {
-    // 缓存Car子类的Class实例
-    private static Map<String, Car> carMap = new HashMap<>();
+    /**
+     *     缓存Car子类的实例
+     */
+    private static Map<String, Car> carMap = new ConcurrentHashMap<>();
 
     static {
         // 读取配置文件
