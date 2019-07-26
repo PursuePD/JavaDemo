@@ -3,7 +3,7 @@
 ## 1.创建型
 
 > - [单例模式](single)
-> - [简单工厂模式](/factory/SimpleFactory.md)（不属于gof）
+> - [简单工厂模式](factory/SimpleFactory.md)（不属于gof）
 > - 工厂方法模式
 > - 抽象工厂模式
 > - 建造者模式
