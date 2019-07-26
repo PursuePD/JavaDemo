@@ -16,7 +16,7 @@ import java.util.Properties;
  */
 public class SimpleCarFactoryOptimize {
     // 缓存Car子类的Class实例
-    private static Map<String, Class<Car>> carMap = new HashMap<>();
+    private static Map<String, Car> carMap = new HashMap<>();
 
     static {
         // 读取配置文件
@@ -35,7 +35,8 @@ public class SimpleCarFactoryOptimize {
             try {
                 //通过反射实例化放入map
                 Class<Car> clazz = (Class<Car>) Class.forName(className);
-                carMap.put(key, clazz);
+                Car car = (Car)clazz.newInstance();
+                carMap.put(key, car);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -44,11 +45,7 @@ public class SimpleCarFactoryOptimize {
     // 获取产品实例的方法
     public static Car getInstance(String carName) {
         if(carMap.containsKey(carName)) {
-            try {
-                return carMap.get(carName).newInstance();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            return carMap.get(carName);
         }
         throw new RuntimeException("根据[" + carName+"]查找不到实例");
     }
