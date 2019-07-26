@@ -23,3 +23,61 @@
 当系统中的具体产品类不断增多时候，可能会出现要求工厂类根据不同条件创建不同实例的需求。这种对条件的判断和对具体产品类型的判断交错在一起，很难避免模块功能的蔓延，对系统的维护和扩展非常不利。
 
 #### 简单工厂模式优化
+
+1.使用配置文件和反射来创建类
+
+```java
+
+public class SimpleFactory {
+    // 缓存Car子类的实例
+    private static Map<String, Car> carMap = new HashMap<>();
+
+    static {
+        InputStream is = SimpleFactory.class.getResourceAsStream("car.properties");
+        Properties properties = new Properties();
+        try {
+            properties.load(is);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Enumeration<?> en = properties.propertyNames();
+        while(en.hasMoreElements()) {
+            String key = (String) en.nextElement();
+            String className = properties.getProperty(key);
+            try {
+                Class<?> clazz = Class.forName(className);
+                // 预先实例化
+                Car car = (Car) clazz.newInstance();
+                carMap.put(key, car);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+    // 获取产品实例的方法
+    public static Car getInstance(String carName) {
+        if(carMap.containsKey(carName)) {
+            return carMap.get(carName);
+        }
+        throw new RuntimeException("根据[" + carName+"]查找不到实例");
+    }
+}
+```
+对应的配置文件 /car.properties
+``` 
+bmw320=com.example.designpattern.factory.BMW320
+bmw740=com.example.designpattern.factory.BMW740
+bmw530=com.example.designpattern.factory.BMW530
+```
+
+2.单例
+
+```java
+ private static Map<String, Car> carMap = new ConcurrentHashMap<>();
+
+ Class<Car> clazz = (Class<Car>) Class.forName(className);
+ Car car = (Car)clazz.newInstance();
+ carMap.put(key, car);
+```
