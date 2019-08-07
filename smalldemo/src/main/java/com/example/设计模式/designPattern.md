@@ -2,8 +2,8 @@
 
 ## 1.创建型
 
-> - [单例模式](single)
-> - [简单工厂模式](factory/SimpleFactory.md)（不属于gof）
+> - [单例模式single](single)
+> - [简单工厂模式factory](factory/SimpleFactory.md)（不属于gof）
 > - 工厂方法模式
 > - 抽象工厂模式
 > - 建造者模式
@@ -13,10 +13,10 @@
 
 > - 代理模式
 > - 装饰模式
-> - 适配器模式
+> - [适配器模式Adapter](Adapter适配器模式/Adapter.md)
 > - 组合模式
 > - 桥梁模式
-> - 外观模式
+> - [外观模式facade](facade外观模式/facade.md)
 > - 享元模式
 
 ## 3.行为型
