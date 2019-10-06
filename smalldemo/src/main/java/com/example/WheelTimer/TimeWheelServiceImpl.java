@@ -1,6 +1,5 @@
 package com.example.WheelTimer;
 
-import com.ca.common.tools.utils.DateUtils;
 import io.netty.util.HashedWheelTimer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +26,7 @@ public class TimeWheelServiceImpl implements TimeWheelService {
     @Override
     public void addTimeTaskNewOrder(int overTime, TimeUnit timeUnit, String orderNo) {
         hashedWheelTimer.newTimeout(timeout -> {
-            LOGGER.info("自动关闭订单：{} 关闭时间：{}" , orderNo , DateUtils.getStringTime(System.currentTimeMillis()));
+//            LOGGER.info("自动关闭订单：{} 关闭时间：{}" , orderNo , DateUtils.getStringTime(System.currentTimeMillis()));
             //TODO: 执行订单关闭方法
             //Service.closeOrder(orderNo,"系统自动关闭订单");
         }, overTime, timeUnit);
