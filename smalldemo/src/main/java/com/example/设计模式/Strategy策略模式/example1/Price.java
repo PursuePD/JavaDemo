@@ -1,7 +1,7 @@
 package com.example.设计模式.Strategy策略模式.example1;
 
 /**
- * @author: hz19084340 小崔
+ * @author: 小崔
  * @create: 2019-10-06 15:30
  * @Description: 价格管理，主要完成计算向客户所报价功能
  */

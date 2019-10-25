@@ -1,7 +1,7 @@
 package com.example.设计模式.Strategy策略模式.example2;
 
 /**
- * @author: hz19084340 小崔
+ * @author: 小崔
  * @create: 2019-10-06 17:31
  * @Description:
  */
