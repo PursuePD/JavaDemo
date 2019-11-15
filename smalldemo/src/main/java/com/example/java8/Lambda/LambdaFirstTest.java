@@ -1,5 +1,6 @@
 package com.example.java8.Lambda;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 /**
@@ -24,5 +25,12 @@ public class LambdaFirstTest {
         String separator = ",";
         Arrays.asList( "a", "b", "d" ).forEach(
                 ( String e ) -> System.out.print( e + separator ) );
+
+	BigDecimal a1 = null;
+	BigDecimal a2 = null;
+        BigDecimal b = new BigDecimal("100");
+
+	System.out.println(b.add(a1 == null?BigDecimal.ZERO:a1).add(a2 == null?BigDecimal.ZERO:a2));
+
     }
 }

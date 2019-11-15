@@ -10,14 +10,13 @@ import java.util.concurrent.*;
  * @Author:cuijialei
  * @Date: 2019/7/4
  * @Describe
+ * 思考应用：比如在购物车下单时，对所有的商品进行校验，判断是否都能下单，库存问题等。
  */
 public class ExecutorTest {
 
     public static void main(String[] args) throws  Exception{
         ExecutorServiceTest();
-
     }
-
 
     private static void ExecutorServiceTest() throws Exception{
         //创建一个线程池
@@ -43,5 +42,4 @@ public class ExecutorTest {
             System.out.println("res：" + f.get());
         }
     }
-
 }
