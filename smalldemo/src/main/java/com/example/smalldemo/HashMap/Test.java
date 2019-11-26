@@ -8,12 +8,13 @@ package com.example.smalldemo.HashMap;
 public class Test {
 
     public static void main(String[] args) {
-	MyHashMap<Integer,String> map = new MyHashMap(10,0.6f);
+	MyHashMap<String,String> map = new MyHashMap(10,0.6f);
+//	for (int i = 0;i<10; i++){
+//	    map.put(Math.random()*100 + "",i+"");
+//	}
+
 	for (int i = 0;i<10; i++){
-	    map.put(i,i+"");
-	}
-	for (int i = 0;i<10; i++){
-	    System.out.println(map.get(i));
+	    map.put(i + "",i+"");
 	}
     }
 

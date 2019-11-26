@@ -1,5 +1,9 @@
 package com.example.smalldemo.HashMap;
 
+import com.example.位运算.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +14,8 @@ import java.util.List;
  * @Description:
  */
 public class MyHashMap<K,V> {
+
+    private static final Logger log = LoggerFactory.getLogger(MyHashMap.class);
 
     /**
      * 默认长度
@@ -95,6 +101,7 @@ public class MyHashMap<K,V> {
 	}
 
 	int index = hash(k) & (defaultInitSize - 1);
+	log.info("hash(k):{},(defaultInitSize - 1):{},index:{}",hash(k),(defaultInitSize - 1),index);
 	if(table[index] == null){
 	    table[index] = new Entry(k,v,null);
 	    ++entryUseSize;
@@ -167,7 +174,9 @@ public class MyHashMap<K,V> {
     }
 
     static final int hash(Object key) {
-	int h;
+	int h = 0;
+//	int hash = (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+//	log.info("key:{},code:{},h:{},h >>> 16:{}",key.toString(),hash,h,(h >>> 16));
 	return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 
