@@ -1,11 +1,15 @@
 package com.example.smalldemo.HashMap;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 /**
  * @author: 小崔
  * @create: 2019-11-21 16:48
  * @Description:
  */
-public class MyHashMap<K,V> implements MyMap{
+public class MyHashMap<K,V> {
 
     /**
      * 默认长度
@@ -58,14 +62,116 @@ public class MyHashMap<K,V> implements MyMap{
 	table = new Entry[this.defaultInitSize];
     }
 
+    static class Entry<K,V> {
+	private K key;
+	private V value;
+	private Entry<K,V> next;
 
-    @Override
-    public Object put(Object o, Object o2) {
+	public Entry(){
+
+	}
+
+	public Entry(K key, V value,Entry<K,V> next) {
+	    this.key = key;
+	    this.value = value;
+	    this.next = next;
+	}
+
+	public K getKey() {
+	    return key;
+	}
+
+	public V getValue() {
+	    return value;
+	}
+    }
+
+
+    public V put(K k, V v) {
+	V oldValue = null;
+	//判断是否要扩容
+	if(entryUseSize >= defaultInitSize*defaultLoadFactor){
+	    resize(2*defaultInitSize);
+	}
+
+	int index = hash(k) & (defaultInitSize - 1);
+	if(table[index] == null){
+	    table[index] = new Entry(k,v,null);
+	    ++entryUseSize;
+	}else{
+	    //遍历单链表
+	    Entry<K,V> entry = table[index];
+	    Entry<K,V> e = entry;
+	    while (e.next != null){
+	        //判断并覆盖
+		if(k == e.getKey() || k.equals(e.getKey())){
+		    oldValue = e.value;
+		    e.value = v;
+		    return  oldValue;
+		}
+		//新插入
+		e = e.next;
+	    }
+	    table[index] = new Entry<K,V>(k,v,entry);//头插
+	    ++entryUseSize;
+	}
+	return oldValue;
+    }
+
+    public V get(K k) {
+
+	int index = hash(k) & (defaultInitSize - 1);
+
+	if(table[index] == null){
+	    return null;
+	}else{
+	    Entry<K,V> entry = table[index];
+	    do{
+		if(k == entry.getKey() || k.equals(entry.getKey())){
+		    return  entry.value;
+		}
+		entry = entry.next;
+	    }while (entry != null);
+	}
 	return null;
     }
 
-    @Override
-    public Object get(Object o) {
-	return null;
+
+    private void resize(int i){
+        Entry[] newTable = new Entry[i];
+
+        defaultInitSize = i;
+        entryUseSize = 0;
+        rehash(newTable);
+    }
+
+    private void rehash(Entry<K,V>[] newTable){
+	List<Entry<K,V>> entryList = new ArrayList<>();
+	for (Entry<K, V> entry : table) {
+	    if(entry != null){
+	        do{
+	            entryList.add(entry);
+	            entry = entry.next;
+		}while (entry != null);
+	    }
+	}
+
+	if(newTable.length > 0){
+	    table = newTable;
+	}
+
+	//重新hash（put）
+	for (Entry<K, V> entry : entryList) {
+	    put(entry.getKey(), entry.value);
+	}
+    }
+
+    static final int hash(Object key) {
+	int h;
+	return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+
+    public int getEntryUseSize() {
+	return entryUseSize;
     }
 }
