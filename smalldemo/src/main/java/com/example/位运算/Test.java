@@ -79,11 +79,15 @@ public class Test {
 	 * 所以：10 >> 2 = 0000 0000 0000 0010 = 2
 	 *注意，观察可以发现，右移一位的结果就是原值除2，左移两位的结果就是原值除4，注意哦，除了以后没有小数位的，都是取整。
 	 *
+	 * 8、无符号右移(>>>) 负数不回去取补码  补1
+	 * -4>>>1
+	 * 11111111111111111111111111111100
+	 * 11111111111111111111111111111110
 	 */
 	log.info("4二进制:{}",Integer.toBinaryString(4));
 	log.info("4>>1:二进制{}",Integer.toBinaryString(4>>1));
-	log.info("4>>1:{}",4>>1);
-
+	log.info("4>>>1:二进制{}",Integer.toBinaryString(4>>>1));
+	log.info("-4>>>1:二进制{}",Integer.toBinaryString(-4>>>1));
 
 	log.info("-4二进制(32):{}",Integer.toBinaryString(-4));
 	log.info("-4转为4:{}",Integer.toBinaryString(~(-4)+1));
