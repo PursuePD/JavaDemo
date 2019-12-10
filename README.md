@@ -23,15 +23,16 @@
 >     * 锁
 >     * 线程
 >       * 另起线程实现异步操作 Thread\AsynchronizationThread.java
->     * Java8特性 java8.Lambda\Lambda.java
->     * 时间轮
->     * Java特性 Stream
+>     * Java特性 
+>       * Lambda java8.Lambda\Lambda.java
+>       * Stream
 > * 算法
 >   * 排序 EasySort
-> * smalldemo：
+> * other：
 >   * 压缩文件，加密压缩文件 ZipFile\ZipUtil.java
 >   *  MyHashMap
 >   *  MyThreadPool
+>   * 时间轮
 ### [4. delayedTask](https://github.com/PursuePD/JavaDemo/tree/master/delayedTask)
 > * 秒级定时任务讨论分析
 >     * 时间轮
