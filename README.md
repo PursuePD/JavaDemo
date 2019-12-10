@@ -8,7 +8,6 @@
 > * 邮件的发送,附带文件的邮件发送
 > * Zip文件压缩并加密
 > * 定时任务  Scheduled
->  * 定时任务  Scheduled
 > * 事件监听  
 >  * 事件监听需要  `触发器`->`事件源`->`监听器`  
 >    * 触发器【触发消息】EventServiceImpl 需要实现ApplicationContextAware 
@@ -21,13 +20,18 @@
 ### [3. smalldemo](https://github.com/PursuePD/JavaDemo/tree/master/smalldemo)
 > * 很多小的用例目前包括：
 >     * [设计模式](/smalldemo/src/main/java/com/example/设计模式/designPattern.md)
+>     * 锁
 >     * 线程
 >       * 另起线程实现异步操作 Thread\AsynchronizationThread.java
->     * 压缩文件，加密压缩文件 ZipFile\ZipUtil.java
 >     * Java8特性 java8.Lambda\Lambda.java
->     * 排序 EasySort
 >     * 时间轮
 >     * Java特性 Stream
+> * 算法
+>   * 排序 EasySort
+> * smalldemo：
+>   * 压缩文件，加密压缩文件 ZipFile\ZipUtil.java
+>   *  MyHashMap
+>   *  MyThreadPool
 ### [4. delayedTask](https://github.com/PursuePD/JavaDemo/tree/master/delayedTask)
 > * 秒级定时任务讨论分析
 >     * 时间轮
