@@ -22,7 +22,7 @@ public class ExecutorTest {
         //创建一个线程池
 //        ExecutorService pool = Executors.newFixedThreadPool(10);
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().build();
-        ExecutorService pool = new ThreadPoolExecutor(5,200,0L,TimeUnit.MILLISECONDS,
+        ExecutorService pool = new ThreadPoolExecutor(5,5,0L,TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<Runnable>(1024),namedThreadFactory,new ThreadPoolExecutor.AbortPolicy());
 
         List<Future<String>> list = new ArrayList<>();
