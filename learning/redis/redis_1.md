@@ -1,5 +1,19 @@
 #### SDS（简单动态字符串）
 
+SDS的实现
+
+```c
+struct sdshdr {
+    //记录buf数组中已经使用字节的数量 等于sds所保存字符串的长度
+    int len;
+    //记录buf数组中未使用字节的数量
+    int free;
+    //字节数组，用于保存字符串
+    char buf[];
+
+};
+```
+
 问题：为什么redis没有直接使用C语言的字符串而是使用了SDS（simple dynamic string）呢？
 		
 - 获取字符串长度复杂度：因为C语言获取长度会遍历整个字符串，复杂度为O(N)。而SDS则记录了使用大小len和剩余大小free
