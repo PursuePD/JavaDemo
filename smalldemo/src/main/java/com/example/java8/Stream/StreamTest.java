@@ -1,6 +1,8 @@
 package com.example.java8.Stream;
 
 import com.example.java8.Stream.model.PersonModel;
+import com.example.java8.Stream.model.PersonModelCopy;
+import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,9 +49,26 @@ public class StreamTest {
 
     }
 
+    /**
+     * 获取某个属性
+     */
     public static void getAgeList(){
         List<Integer> tempIdList = list.stream().map(PersonModel::getAge).collect(Collectors.toList());
         System.out.println(tempIdList);
+    }
+
+    /**
+     * 更多操作
+     */
+    public static void getList(){
+        List<PersonModelCopy> copy = new ArrayList<>();
+        copy = list.stream().map(personModel -> {
+            PersonModelCopy personModelCopy = new PersonModelCopy();
+            BeanUtils.copyProperties(personModel, personModelCopy);
+            personModelCopy.setHeight(111);
+            return personModelCopy;
+        }).collect(Collectors.toList());
+        System.out.println(copy);
     }
 
 
@@ -58,6 +77,6 @@ public class StreamTest {
     }
 
     public static void main(String[] args) {
-        getAgeList();
+        getList();
     }
 }
