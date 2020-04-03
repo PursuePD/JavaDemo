@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -81,6 +82,20 @@ public class StreamTest {
             personModelCopy.setHeight(111);
             return personModelCopy;
         }).collect(Collectors.toCollection(LinkedList::new));
+        System.out.println(copy);
+    }
+
+    /**
+     * 转为map
+     */
+    public static void getMap( List<PersonModel> personModels){
+        Map<String,PersonModelCopy> copy  = list.stream().map(personModel -> {
+            PersonModelCopy personModelCopy = new PersonModelCopy();
+            BeanUtils.copyProperties(personModel, personModelCopy);
+            personModelCopy.setHeight(111);
+            return personModelCopy;
+        }).collect(Collectors.toMap(PersonModelCopy::getName,personModelCopy->personModelCopy));
+
         System.out.println(copy);
     }
 
