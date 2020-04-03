@@ -5,6 +5,7 @@ import com.example.java8.Stream.model.PersonModelCopy;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,7 +59,7 @@ public class StreamTest {
     }
 
     /**
-     * 更多操作
+     * 转为list
      */
     public static void getList(){
         List<PersonModelCopy> copy = new ArrayList<>();
@@ -68,6 +69,18 @@ public class StreamTest {
             personModelCopy.setHeight(111);
             return personModelCopy;
         }).collect(Collectors.toList());
+        System.out.println(copy);
+    }
+    /**
+     * 转为linkedlist
+     */
+    public static void getLinkedList(){
+        LinkedList<PersonModelCopy> copy = list.stream().map(personModel -> {
+            PersonModelCopy personModelCopy = new PersonModelCopy();
+            BeanUtils.copyProperties(personModel, personModelCopy);
+            personModelCopy.setHeight(111);
+            return personModelCopy;
+        }).collect(Collectors.toCollection(LinkedList::new));
         System.out.println(copy);
     }
 
