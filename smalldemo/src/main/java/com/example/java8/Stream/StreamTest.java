@@ -96,6 +96,8 @@ public class StreamTest {
             return personModelCopy;
         }).collect(Collectors.toMap(PersonModelCopy::getName,personModelCopy->personModelCopy));
 
+        list.stream().collect(Collectors.toMap(PersonModel::getName,personModel -> personModel));
+
         System.out.println(copy);
     }
 
