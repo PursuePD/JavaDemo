@@ -26,6 +26,13 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.cjl.common</groupId>
+            <artifactId>common-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
@@ -73,11 +80,6 @@
             <version>1.3.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>ca-common</groupId>
-            <artifactId>tools</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
