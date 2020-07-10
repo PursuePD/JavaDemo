@@ -1,14 +1,20 @@
 package com.example.java8.Stream.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * @Author:cuijialei
  * @Date: 2019/4/23
  * @Describe
  */
 public class PersonModel {
+    @ApiModelProperty(value = "name")
     private String name;
+    @ApiModelProperty(value = "age")
     private int age;
+    @ApiModelProperty(value = "man")
     private boolean man;
+    @ApiModelProperty(value = "height")
     private double height;
 
     public PersonModel() {
