@@ -8,9 +8,9 @@ import java.io.Serializable;
  * @create: 2019-07-24 00:37
  **/
 public class FinalSingle implements Serializable {
-    //volatile 防止指令重排
+    //volatile 防止指令重排  new FinalSingle() 有几个步骤，准备（分配内存并设置初始值） 初始化
 
-    private  static FinalSingle mInstance;
+    private volatile static FinalSingle mInstance;
 
     private FinalSingle() {
         if (mInstance!=null){
@@ -21,7 +21,7 @@ public class FinalSingle implements Serializable {
     public static FinalSingle getInstance() {
         if (mInstance == null) {
             synchronized (FinalSingle.class) {
-                if (mInstance == null){
+                if (mInstance == null){ //双重校验
                     mInstance = new FinalSingle();
                 }
             }
